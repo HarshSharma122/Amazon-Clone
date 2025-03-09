@@ -1,0 +1,11 @@
+.custom_css
+{
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    z-index: -1;
+    margin-bottom: -150px;
+}
+.product__row
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
