@@ -7,7 +7,7 @@ try {
     "mongodb+srv://Harshsharma:VYn0dXG9XmBWnpcV@cluster3.1i89vhj.mongodb.net"
   );
 } catch (error) {
-  console.error(error.message);
+  console.error(error);
 }
 const app = express();
 app.use(express.json());
@@ -21,6 +21,9 @@ app.get("/productData", async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: "failed to fetch data" });
   }
+  
+  
+  
 });
 app.listen(3000, () => {
   console.log("Your server is working");

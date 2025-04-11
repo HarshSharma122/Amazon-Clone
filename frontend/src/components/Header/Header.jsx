@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/amazon-dark-logo-png-transparent-removebg-preview.png'
 import { SearchIcon, ShoppingCart } from 'lucide-react'
-import Hero from "../HeroS/Hero";
 export default function Header() {
   return (
     <>
@@ -39,7 +38,7 @@ export default function Header() {
                 {/* <img className="w-9"  alt="" /> */}
                 <ShoppingCart/>
                 <div className="flex items-center flex-col">
-                    <span>2</span>
+                    <span>1</span>
                     <h1 className="ml-1 text-l">Cart</h1>
                 </div>
                 </NavLink>
@@ -126,8 +125,6 @@ export default function Header() {
             </ul>
         </div>
         </header>
-
-        <Hero/>
     </>
   );
 }
