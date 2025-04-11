@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/amazon-dark-logo-png-transparent-removebg-preview.png'
-import { ShoppingCart } from 'lucide-react'
+import { SearchIcon, ShoppingCart } from 'lucide-react'
 import Hero from "../HeroS/Hero";
 export default function Header() {
   return (
@@ -54,12 +54,8 @@ export default function Header() {
                     type="text"
                     placeholder="Search amazon.in"
                 />
-                <div className="w-13 h-10 cursor-pointer search-icon-img flex  items-center justify-center">
-                    <img
-                    src=""
-                    className="h-6 flex items-center justify-center"
-                    alt=""
-                    />
+                <div className="w-13 h-10 cursor-pointer flex bg-yellow-500   items-center justify-center">
+                 <SearchIcon/>
                 </div>
                 </div>
             </div>

@@ -13,11 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-const genricmodel = mongoose.model(
-  "products",
-  new mongoose.Schema({}, { strict: false }),
-  "products"
-);
+const genricmodel = mongoose.model("products",new mongoose.Schema({}, { strict: false }),"products");
 app.get("/productData", async (req, res) => {
   try {
     const data = await genricmodel.find();

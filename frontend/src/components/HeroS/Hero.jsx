@@ -13,10 +13,9 @@ function Hero() {
     }, [])
 
     return (
-        <div className='grid grid-cols-6 gap-6 z-0 mt-10 mr-5'>
+        <div className='grid grid-cols-4 gap-4 z-0 mt-10 mr-5'>
             {
                 data.map((ans) => (
-
                     <Productsparts product_name={ans.product_name} price={ans.price} quantity={ans.quantity} description={ans.description} image={ans.image} />
                 ))
 
