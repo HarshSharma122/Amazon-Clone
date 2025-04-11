@@ -40,7 +40,7 @@ export default function Header() {
                 {/* <img className="w-9"  alt="" /> */}
                 <ShoppingCart/>
                 <div className="flex items-center flex-col">
-                    <span>{value}</span>
+                    <span>{value?.length}</span>
                     <h1 className="ml-1 text-l">Cart</h1>
                 </div>
                 </NavLink>
@@ -76,54 +76,7 @@ export default function Header() {
                 All
                 </NavLink>
             </li>
-            <li>
-                <NavLink
-                to="/boys"
-                className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 text-base ${
-                    isActive ? "text-orange-500" : "text-white"
-                    } border-b border-gray-100  lg:border-0 hover:text-orange-700 lg:p-0 font-normal`
-                }
-                >
-                Boy
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                to="/girls"
-                className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 text-base ${
-                    isActive ? "text-orange-500" : "text-white"
-                    } border-b border-gray-100  lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 font-normal`
-                }
-                >
-                Girls
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                to="/child"
-                className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 text-base ${
-                    isActive ? "text-orange-500" : "text-white"
-                    } border-b border-gray-100  lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 font-normal`
-                }
-                >
-                Child
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                to="/shoes"
-                className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 text-base ${
-                    isActive ? "text-orange-500" : "text-white"
-                    } border-b border-gray-100 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 font-normal`
-                }
-                >
-                Shoes
-                </NavLink>
-            </li>
+            
             </ul>
         </div>
         </header>

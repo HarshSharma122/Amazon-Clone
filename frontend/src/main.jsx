@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import Hero from './components/HeroS/Hero.jsx'
 import CartContextProvider from './context/CartContextProvider.jsx'
+import Checkout from './components/Checkout/Checkout.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -13,6 +14,11 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Hero />
+      }
+      ,
+      {
+        path:'/Checkout',
+        element:<Checkout/>
       }
 
     ]

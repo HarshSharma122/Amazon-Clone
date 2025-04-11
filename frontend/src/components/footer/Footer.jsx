@@ -2,8 +2,8 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div>
-      footer
+    <div className='flex itemse-center justify-center text-center '>
+      <h1>Made by ❤Harsh Sharma</h1>
     </div>
   )
 }
