@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/amazon-dark-logo-png-transparent-removebg-preview.png'
 import { SearchIcon, ShoppingCart } from 'lucide-react'
+import CartContext from "../../context/CartContext";
 export default function Header() {
+    const{value} = useContext(CartContext);
   return (
     <>
         <header className="shadow sticky z-50 top-0">
@@ -38,7 +40,7 @@ export default function Header() {
                 {/* <img className="w-9"  alt="" /> */}
                 <ShoppingCart/>
                 <div className="flex items-center flex-col">
-                    <span>1</span>
+                    <span>{value}</span>
                     <h1 className="ml-1 text-l">Cart</h1>
                 </div>
                 </NavLink>

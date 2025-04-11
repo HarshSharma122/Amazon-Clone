@@ -4,26 +4,29 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import Hero from './components/HeroS/Hero.jsx'
+import CartContextProvider from './context/CartContextProvider.jsx'
 const router = createBrowserRouter([
   {
-    path:'/',
-    element:<App/>,
-    children:[
+    path: '/',
+    element: <App />,
+    children: [
       {
-        path:'/',
-        element:<Hero/>
+        path: '/',
+        element: <Hero />
       }
-     
+
     ]
-  }, 
+  },
 
 ])
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    
-      <RouterProvider router={router}/>
-   
+    <CartContextProvider>
+      <RouterProvider router={router} />
+    </CartContextProvider>
+
+
   </StrictMode>,
 )

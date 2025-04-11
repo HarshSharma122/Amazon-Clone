@@ -1,5 +1,17 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
+import CartContextProvider from '../../context/CartContextProvider';
+import CartContext from '../../context/CartContext';
+
+
+
 function Productsparts({id , product_name, price, quantity, description, image }) {
+
+    const {value, setvalue} = useContext(CartContext)
+
+    const AddCartItem = ()=>
+    {
+        setvalue(value + 1);
+    }
     return (
         <div className=" cursor-pointer bg-gray-100 mb-7 ml-10 flex flex-col z-0">
             <div className="img_section flex-[40%]">
@@ -17,7 +29,7 @@ function Productsparts({id , product_name, price, quantity, description, image }
                     <strong>{description}</strong>
                 </div>
                 
-                <button className="rounded-lg border-1 bg-yellow-400 mb-5 mt-5 text-black-500 border-none w-25 h-8 cursor-pointer">
+                <button onClick={AddCartItem} className="rounded-lg border-1 bg-yellow-400 mb-5 mt-5 text-black-500 border-none w-25 h-8 cursor-pointer">
                     Add to cart
                 </button>
             </div>
