@@ -6,6 +6,11 @@ import App from './App.jsx'
 import Hero from './components/HeroS/Hero.jsx'
 import CartContextProvider from './context/CartContextProvider.jsx'
 import Checkout from './components/Checkout/Checkout.jsx'
+import Account from './components/AccountSection/AccountSection.jsx'
+import ShowOrders from './components/Orders/ShowOrders.jsx'
+import LoginSecurity from './components/LoginSecurity/LoginSecurity.jsx'
+import Address from './components/Address/Address.jsx'
+import CheckLogedProvider from './context/CheckLogedContext.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -17,12 +22,32 @@ const router = createBrowserRouter([
       }
       ,
       {
-        path:'/Checkout',
-        element:<Checkout/>
+        path: '/Checkout',
+        element: <Checkout />
       }
-
+      ,
+      {
+        path: '/Account',
+        element: <Account />
+      },
+      {
+        path: '/Orders',
+        element: <ShowOrders />
+      }
+      ,
+      {
+        path: '/Address',
+        element: <Address />
+      }
     ]
+
   },
+  {
+
+    path: '/Login',
+    element: <LoginSecurity />
+
+  }
 
 ])
 
@@ -30,7 +55,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <CartContextProvider>
-      <RouterProvider router={router} />
+      <CheckLogedProvider>
+        <RouterProvider router={router} />
+      </CheckLogedProvider>
     </CartContextProvider>
 
 

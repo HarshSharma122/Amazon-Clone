@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const userModel = require('./models/UserData.model');
 
 try {
   const connect1 = mongoose.connect(
@@ -22,9 +23,19 @@ app.get("/productData", async (req, res) => {
     res.status(500).json({ error: "failed to fetch data" });
   }
   
-  
-  
 });
+
+app.post('/create', (req, res)=>
+{
+  const{name, email, password, number} = req.body;
+  const users = new userModel({
+    name,
+    email,
+    password,
+    number
+  })
+  users.save();
+})
 app.listen(3000, () => {
   console.log("Your server is working");
 });
