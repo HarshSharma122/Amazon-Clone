@@ -1,10 +1,29 @@
 import React from 'react'
-
+import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import LogedContext from '../../context/logedContext';
 function Address() {
+   const {isLogedIn} = useContext(LogedContext);
+      
   return (
-    <div>
-      address
-    </div>
+    <>
+    {
+      isLogedIn === true?(
+      <div>
+            <h1 className='p-3 text-2xl font-bold'></h1>
+      </div>
+
+      ):(
+        <div className='p-40'>
+          <div className='text-2xl font-bold'>Please login or signup</div>
+          <NavLink to="/login">
+            <button className='mt-3 cursor-pointer bg-yellow-500 p-3 text-white text-xl'>Login & signup</button>
+          </NavLink>
+
+        </div>
+      )
+    }
+    </>
   )
 }
 
