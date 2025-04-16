@@ -1,14 +1,22 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/amazon-dark-logo-png-transparent-removebg-preview.png'
-import { SearchIcon, ShoppingCart, User, UserX, X } from 'lucide-react'
+import { SearchIcon, ShoppingCart, User, X } from 'lucide-react'
 import CartContext from "../../context/CartContext";
 import LogedContext from "../../context/logedContext";
 export default function Header() {
+    const [user, setuser] = useState([]);
+    useEffect(()=>
+    {
+        fetch('http://localhost:3000/userData').then(res=>res.json()).then(ans=>setuser(ans)).catch((error)=>
+        {
+            console.log("Error coming", error);
+        })
+    },[])
     
     const {isLogedIn} = useContext(LogedContext);
-    
     const { value } = useContext(CartContext);
+
     return (
         <>
 
@@ -20,27 +28,30 @@ export default function Header() {
                         </Link>
                         <div className="flex items-center lg:order-2">
                             {
-                                isLogedIn===true? (
-                                    <Link
-                                
-                                    className="text-white bg-yellow-500 focus:ring-gray-300 font-medium flex items-center justify-center  rounded-lg text-[18px] focus:outline-none px-2 py-2 mr-4">
+                               
+                                    isLogedIn===true? (
+                                        <p
+                                    
+                                        className="text-white focus:ring-gray-300 
                                         
-                                  
-                                </Link>
-                                ):(
-                                    <Link
-                                
-                                    className="text-white bg-yellow-500 focus:ring-gray-300 font-medium flex items-center justify-center  rounded-lg text-[18px] focus:outline-none px-2 py-2 mr-4">
-                                  <X/>
-                                </Link>
-                                )
+                                        font-medium flex items-center justify-center  rounded-lg text-[20px] focus:outline-none px-2 py-2 mr-4">
+                                            
+                                      {
+                                                                           
+                                      }
+                                    </p>
+                                    ):(
+                                        <p></p>
+                                    )
+                            
                             }
                      
                             <NavLink
                                 to="/account"
-                                className="text-white bg-yellow-500 focus:ring-gray-300 font-medium w-[90px] flex items-center justify-center  rounded-lg text-[18px] focus:outline-none px-2 py-2 mr-4"
+                                className="text-white bg-yellow-500 focus:ring-gray-300 font-medium w-[40px] flex items-center justify-center  rounded-lg text-[18px] focus:outline-none px-1 py-1 mr-4 rounded"
+                                
                             >
-                                account
+                                <User/>
                             </NavLink>
                             <Link
                                 to="#"

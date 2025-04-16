@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const userModel = require('./models/UserData.model');
-
+const addressModel = require('./models/addressData.model')
 try {
   const connect1 = mongoose.connect(
     "mongodb+srv://Harshsharma:VYn0dXG9XmBWnpcV@cluster3.1i89vhj.mongodb.net"
@@ -35,6 +35,40 @@ app.post('/create', (req, res)=>
     number
   })
   users.save();
+})
+
+
+app.post('/addressData', (req, res)=>
+{
+  const {firstName, lastName, addressLine1,
+    addressLine2,
+    city,
+    state,
+    postalCode,
+    country,
+    phone} = req.body;
+
+  const userAddress = new  addressModel({
+    firstName, lastName, addressLine1,
+    addressLine2,
+    city,
+    state,
+    postalCode,
+    country,
+    phone
+  })
+  userAddress.save();
+})
+
+
+
+
+const ans = mongoose.model("user", new mongoose.Schema({}, {strict:false}), "users");
+
+app.get('/userData', async (req, res) =>
+{
+  const a = await ans.find();
+  res.json(a);
 })
 app.listen(3000, () => {
   console.log("Your server is working");

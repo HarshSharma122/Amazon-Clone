@@ -5,7 +5,7 @@ import amazon from '../../assets/logo-amazon.svg'
 import { MoveRightIcon } from 'lucide-react'
 import LogedContext from '../../context/logedContext'
 function LoginSecurity() {
-    const {isLogedIn, setIsLogedIn} = useContext(LogedContext);
+    const { isLogedIn, setIsLogedIn } = useContext(LogedContext);
     const [InputValue, setInputValue] = useState({
         name: "",
         email: "",
@@ -14,24 +14,21 @@ function LoginSecurity() {
     });
 
     const changeValue = (e) => {
-        setInputValue({...InputValue, [e.target.name]:e.target.value});
+        setInputValue({ ...InputValue, [e.target.name]: e.target.value });
     }
-    const addProduct = (e)=>
-    {
-        
+    const addProduct = (e) => {
+
         e.preventDefault();
         setIsLogedIn(true);
-        
+
         fetch('http://localhost:3000/create', {
-        method:'POST', 
-        headers:{
-                'Content-Type':'application/json'
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
             },
 
-        body:JSON.stringify(InputValue)
-        }).then(res=>res.json())
-        
-
+            body: JSON.stringify(InputValue)
+        }).then(res => res.json())
     }
 
     return (
@@ -55,7 +52,7 @@ function LoginSecurity() {
                             <h2 className="text-2xl font-semibold tracking-tight text-balance text-gray-900 sm:text-2xl">Signup or Create Account</h2>
 
                         </div>
-                        <form onSubmit={addProduct} action='/'  className="mx-auto mt-10 max-w-xl">
+                        <form onSubmit={addProduct} action='/' className="mx-auto mt-10 max-w-xl">
 
                             <div className="grid grid-cols-1 gap-x-5 gap-y-1 sm:grid-cols-2">
                                 <div className='sm:col-span-2'>
@@ -149,34 +146,25 @@ function LoginSecurity() {
 
                             </div>
                             <div className="mt-10">
-                                {
-                                    isLogedIn === true?(
-                                        <NavLink to='/'>
-                                            <button
-                                            type="submit"
-                                            className="block w-full rounded-md cursor-pointer bg-yellow-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-yellow-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:focus:outline-[#3c6e71]"
-                                        >
-                                            SignUp
-                                        </button>
 
-                                        </NavLink>
-                                    ):(
 
-                                        <button
-                                        type="submit"
-                                        className="block w-full rounded-md cursor-pointer bg-yellow-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-yellow-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:focus:outline-[#3c6e71]"
-                                    >
-                                        SignUp
-                                    </button>
-                                    )
-                                }
-                                
-                              
-                                
+
+                                <button
+                                    type="submit"
+                                    className="block w-full rounded-md cursor-pointer bg-yellow-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-yellow-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:focus:outline-[#3c6e71]"
+                                >
+                                    SignUp
+                                </button>
+
+
+
+
+
+
                             </div>
 
 
-                            <button className='flex mr-1 mt-2 cursor-pointer hover:text-yellow-600'>Already have an account <MoveRightIcon className='ml-1'/> </button>
+                            <button className='flex mr-1 mt-2 cursor-pointer hover:text-yellow-600'>Already have an account <MoveRightIcon className='ml-1' /> </button>
 
                         </form>
                     </div>

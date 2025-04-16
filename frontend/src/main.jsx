@@ -11,6 +11,7 @@ import ShowOrders from './components/Orders/ShowOrders.jsx'
 import LoginSecurity from './components/LoginSecurity/LoginSecurity.jsx'
 import Address from './components/Address/Address.jsx'
 import CheckLogedProvider from './context/CheckLogedContext.jsx'
+import Profile from './components/Profile/Profile.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -38,15 +39,17 @@ const router = createBrowserRouter([
       {
         path: '/Address',
         element: <Address />
+      },
+      {
+        path: '/profile',
+        element: <Profile/>
       }
     ]
 
   },
   {
-
     path: '/Login',
     element: <LoginSecurity />
-
   }
 
 ])

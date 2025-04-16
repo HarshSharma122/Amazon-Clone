@@ -3,6 +3,7 @@ import React from 'react'
 import parcel from '../../assets/delivery.png';
 import lock from '../../assets/lock.png'
 import address from '../../assets/gps.png'
+import profile from '../../assets/profile.png'
 import { Link, NavLink } from 'react-router-dom';
 function Account() {
   return (
@@ -10,10 +11,26 @@ function Account() {
       <h1 className='font-bold text-black text-4xl'>Your Account</h1>
 
       {/*  */}
-      <div className='mt-10 grid md:grid-cols-4 gap-4 grid-cols-2 gap-10 '>
+      <div className='mt-10 grid md:grid-cols-3 gap-4 grid-cols-2 gap-10 '>
 
+        {/* for profile components starts here */}
+        <NavLink to='/profile'>
+          <div className="border-1 shadow-gray-300 border-t-4 hover: border-gray-500 rounded p-3 md:pb-10 h-30 md:h-[40] hover:scale-105 transition-all hover:shadow-md ">
+            <div className='flex'>
+              <div className="">
+                <img src={profile}   alt=""  className='w-19 md:w-20 pr-5'/>
+              </div>
+              <div className="">
+                <h2 className='font-bold text-xl'>Your Profile</h2>
+                <span>
+                  <p className='text-gray-500'>See your Profile</p>
+                </span>
+              </div>
 
-
+            </div>
+          </div>
+        </NavLink>
+        {/* for profile components end here */}
 
         {/* for orders components start here*/}
         <NavLink to='/Orders'>
