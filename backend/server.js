@@ -1,5 +1,8 @@
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require('cookie-parser');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const mongoose = require("mongoose");
 const userModel = require('./models/UserData.model');
 const addressModel = require('./models/addressData.model')
@@ -14,6 +17,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(cookieParser());
+
+
+
 const genricmodel = mongoose.model("products",new mongoose.Schema({}, { strict: false }),"products");
 app.get("/productData", async (req, res) => {
   try {
@@ -23,18 +30,28 @@ app.get("/productData", async (req, res) => {
     res.status(500).json({ error: "failed to fetch data" });
   }
   
+  res.send(data)
 });
 
 app.post('/create', (req, res)=>
 {
   const{name, email, password, number} = req.body;
-  const users = new userModel({
-    name,
-    email,
-    password,
-    number
+  bcrypt.genSalt(10, (err, salt)=>
+  {
+    bcrypt.hash(password, salt, async(err, hash)=>
+      {
+        let users = new userModel({
+          name,
+          email,
+          password:hash,
+          number
+        })
+        let token = jwt.sign({email:email}, "harshdu9urr93u93");
+        res.cookie("token", token);
+        users.save();
+      })
   })
-  users.save();
+ 
 })
 
 
